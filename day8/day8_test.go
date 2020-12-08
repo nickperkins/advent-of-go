@@ -37,7 +37,22 @@ func TestDaySevenInputOne(t *testing.T) {
 	code := CodeStack{}
 
 	code.LoadCode(data)
-	result := code.RunCode()
+	result, err := code.RunCode()
 
+	fmt.Println(result)
+}
+
+func TestDaySevenInputTwo(t *testing.T) {
+	input, err := ioutil.ReadFile("./input.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	data := scanFile(t, input)
+	code := CodeStack{}
+
+	code.LoadCode(data)
+
+	result := code.FixCode()
 	fmt.Println(result)
 }
