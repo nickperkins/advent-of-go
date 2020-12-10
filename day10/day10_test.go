@@ -40,24 +40,23 @@ func TestDayTenInputOne(t *testing.T) {
 		dataInt[i] = utils.MustAtoi(v)
 	}
 
-	result1, result2 := GetDifferences(dataInt)
-	result := result1 * result2
+	result := PartOne(dataInt)
 	fmt.Println(result)
 }
 
-// func TestDayTenInputTwo(t *testing.T) {
-// 	input, err := ioutil.ReadFile("./in.txt")
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
+func TestDayTenInputTwo(t *testing.T) {
+	input, err := ioutil.ReadFile("./input.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
 
-// 	data := scanFile(t, input)
-// 	dataInt := make([]int, len(data))
-// 	for i, v := range data {
-// 		dataInt[i] = utils.MustAtoi(v)
-// 	}
+	data := scanFile(t, input)
+	dataInt := make([]int, len(data))
+	for i, v := range data {
+		dataInt[i] = utils.MustAtoi(v)
+	}
 
-// 	result := GetCombinations(dataInt)
+	result := PartTwo(dataInt)
 
-// 	fmt.Println(result)
-// }
+	fmt.Println(result)
+}

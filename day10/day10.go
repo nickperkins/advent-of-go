@@ -14,7 +14,9 @@ func sortAdapters(i []int) []int {
 
 	return i
 }
-func GetDifferences(input []int) (int, int) {
+
+//PartOne is a solution to Part one of Day 10
+func PartOne(input []int) int {
 
 	var ones, threes int
 
@@ -30,7 +32,7 @@ func GetDifferences(input []int) (int, int) {
 		}
 	}
 
-	return ones, threes
+	return ones * threes
 }
 
 func isValid(input []int) bool {
@@ -46,4 +48,18 @@ func isValid(input []int) bool {
 	}
 	return true
 
+}
+
+// PartTwo is from https://github.com/berndhartzer/advent-of-code-2020/blob/master/10_adapter_array/10_adapter_array.go
+func PartTwo(adapters []int) int {
+	sort.Ints(adapters)
+	adapters = append(adapters, adapters[len(adapters)-1]+3)
+
+	variations := make(map[int]int)
+	variations[0] = 1
+	for _, n := range adapters {
+		variations[n] = variations[n-1] + variations[n-2] + variations[n-3]
+	}
+
+	return variations[adapters[len(adapters)-1]]
 }
